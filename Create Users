@@ -1,0 +1,15 @@
+#! /bin/bash
+##批量创建用户
+if [ $# -eq 0 ];then
+   echo "Input file name"
+   exit 1
+fi
+if [ ! -f $1 ];then
+   echo "Input file not found"
+   exit 2
+fi
+for i in `cat $1`
+do
+   useradd $i &> /dev/null
+   echo $i创建成功
+done
