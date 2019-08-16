@@ -7,7 +7,7 @@ while :
 do
    for IP in $RIP1 $RIP2
    do
-           curl -s http://$IP &>/dev/vnull
+           curl -s http://$IP &> /dev/null
 if [ $? -eq 0 ];then
             ipvsadm -Ln | grep $IP || ipvsadm -a -t $VIP -r $IP
         else
