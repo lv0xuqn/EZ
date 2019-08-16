@@ -1,0 +1,11 @@
+#! /bin/bash
+##简单if判断
+if [ $# -eq 0 ];then
+   echo "Input redhat | fedora"
+elif [ $1 == redhat ];then
+   echo fedora
+elif [ $1 == fedora ];then
+   echo redhat
+else
+   echo "Input redhat | fedora"
+fi
