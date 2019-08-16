@@ -9,9 +9,9 @@ do
    do
            curl -s http://$IP &>/dev/vnull
 if [ $? -eq 0 ];then
-            ipvsadm -Ln | grep -q $IP || ipvsadm -a -t $VIP -r $IP
+            ipvsadm -Ln | grep $IP || ipvsadm -a -t $VIP -r $IP
         else
-             ipvsadm -Ln | grep -q $IP && ipvsadm -d -t $VIP -r $IP
+            ipvsadm -Ln | grep $IP && ipvsadm -d -t $VIP -r $IP
         fi
    done
 sleep 1
