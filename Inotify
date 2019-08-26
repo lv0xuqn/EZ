@@ -9,9 +9,9 @@ net_in=`ifconfig eth0 | awk '/RX p/{print $5}'`
 echo "入站网卡流量为:"$net_in
 net_out=`ifconfig eth0 | awk '/TX p/{print $5}'`
 echo "出站网卡流量为:"$net_out
-mem=`free | awk '/Mem/{print $4}'`
+mem=`free -h | awk '/Mem/{print $4}'`
 echo "内存剩余容量为:"$mem
-disk=`df | awk '/\/$/{print $4}'`
+disk=`df -h | awk '/\/$/{print $4}'`
 echo "根分区剩余容量为:"$disk
 user=`cat /etc/passwd |wc -l`
 echo "本地账户数量为:"$user
@@ -24,4 +24,4 @@ echo "当前计算机已安装的软件数量为:"$soft
 sleep 3
 clear
 done
-#显示计算机的一些使用量信息
+#显示计算机的一些信息
