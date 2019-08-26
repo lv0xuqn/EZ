@@ -1,0 +1,6 @@
+#! /bin/bash
+date=`date +%Y-%m-%d`  #显示年与日
+path=/usr/local/nginx/logs   #文件路径
+mv $path/access.log $path/access-$date.log   #切割access文件
+mv $path/error.log $path/error-$date.log   #切割error文件
+kill -USR1 $(cat $path/nginx.pid)   #清空原始文件内容
